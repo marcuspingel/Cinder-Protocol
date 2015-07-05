@@ -72,18 +72,18 @@ string ProtocolInterface::keyValuePairToString( const KeyValuePair& kvp, const s
 	return kvp.first + delim + kvp.second;
 }
 
-Buffer ProtocolInterface::stringToBuffer( const string& value )
+BufferRef ProtocolInterface::stringToBuffer( const string& value )
 {
-	Buffer buffer( value.size() );
-	buffer.copyFrom( (char*)&value[ 0 ], value.size() );
+    BufferRef buffer = Buffer::create( value.size() );
+	buffer->copyFrom( (char*)&value[ 0 ], value.size() );
 	return buffer;
 }
 
-string ProtocolInterface::bufferToString( const Buffer& buffer )
+string ProtocolInterface::bufferToString( const BufferRef& buffer )
 {
-	string s( static_cast<const char*>( buffer.getData() ) );
-	if ( s.length() > buffer.getDataSize() ) {
-		s.resize( buffer.getDataSize() );
+	string s( static_cast<const char*>( buffer->getData() ) );
+	if ( s.length() > buffer->getSize() ) {
+		s.resize( buffer->getSize() );
 	}
 	return s;
 }
@@ -91,7 +91,7 @@ string ProtocolInterface::bufferToString( const Buffer& buffer )
 void ProtocolInterface::parse( const string& msg )
 {
 	if ( !msg.empty() ) { 
-		Buffer buffer( (char*)&msg[ 0 ], msg.length() );
+        BufferRef buffer = Buffer::create( (char*)&msg[ 0 ], msg.length() );
 		parse( buffer );
 	}
 }

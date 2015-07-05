@@ -59,10 +59,10 @@ public:
 	void					setHttpVersion( HttpVersion v );
 
 	//! Parses \a buffer to header and body. Throws exception for invalid header.
-	void					parse( const ci::Buffer& buffer );
+	void					parse( const ci::BufferRef& buffer );
 
 	//! Converts entire message to ci::Buffer.
-	ci::Buffer				toBuffer() const;
+	ci::BufferRef			toBuffer() const;
 	//! Converts entire message to std::string.
 	std::string				toString() const;
 

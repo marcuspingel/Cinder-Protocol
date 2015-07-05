@@ -99,36 +99,36 @@ void HttpInterface::setHttpVersion( HttpVersion v )
 	mHttpVersion = v;
 }
 
-void HttpInterface::parse( const Buffer& buffer )
+void HttpInterface::parse( const BufferRef& buffer )
 {
 	string msg		= bufferToString( buffer );
 	size_t offset	= msg.find( sCrLf + sCrLf );
-	size_t sz		= buffer.getDataSize();
+	size_t sz		= buffer->getSize();
 	if ( offset < sz ) {
 		msg = msg.substr( 0, offset );
 		parseHeader( msg );
 
 		size_t len = sz - offset;
-		Buffer body( len );
-		char_traits<char>::copy( (char*)body.getData(), (char*)buffer.getData() + ( offset + 4 ), len );
+        BufferRef body = Buffer::create( len );
+		char_traits<char>::copy( (char*)body->getData(), (char*)buffer->getData() + ( offset + 4 ), len );
 		mBody = body;
 	}
 }
 
-Buffer HttpInterface::toBuffer() const
+BufferRef HttpInterface::toBuffer() const
 {
 	string header		= headerToString();
 	size_t headerLength	= header.size();
 	size_t bodyLength	= 0;
 	if ( mBody ) {
-		bodyLength		= mBody.getDataSize();
+		bodyLength		= mBody->getSize();
 	}
 	size_t sz			= headerLength + bodyLength;
 
-	Buffer buffer( sz );
-	char_traits<char>::copy( (char*)buffer.getData(), (char*)&header[ 0 ], headerLength );
+    BufferRef buffer = Buffer::create( sz );
+	char_traits<char>::copy( (char*)buffer->getData(), (char*)&header[ 0 ], headerLength );
 	if ( bodyLength > 0 ) {
-		char_traits<char>::copy( (char*)buffer.getData() + headerLength, (char*)mBody.getData(), bodyLength );
+		char_traits<char>::copy( (char*)buffer->getData() + headerLength, (char*)mBody->getData(), bodyLength );
 	}
 
 	return buffer;

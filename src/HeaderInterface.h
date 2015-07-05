@@ -49,7 +49,7 @@ public:
 	//! Return string representation of \a headerMap.
 	static std::string	headerMapToString( const HeaderMap& headerMap );
 	//! Returns copy of buffer with header removed.
-	static ci::Buffer	removeHeader( const ci::Buffer& buffer );
+	static ci::BufferRef	removeHeader( const ci::BufferRef& buffer );
 
 	//! Erases header named \a field.
 	void				eraseHeader( const std::string& field );
@@ -68,11 +68,11 @@ public:
 	// Sets all header fields from \a headerMap. Overwrites existing values.
 	void				setHeaders( const HeaderMap& headerMap );
 	//! Parses \a buffer into headers.
-	virtual void		parse( const ci::Buffer& buffer );
+	virtual void		parse( const ci::BufferRef& buffer );
 	virtual void		parseHeader( const std::string& header ) = 0;
 
 	//! Converts entire message to ci::Buffer.
-	virtual ci::Buffer	toBuffer() const;
+	virtual ci::BufferRef	toBuffer() const;
 	//! Converts entire message to std::string.
 	virtual std::string	toString() const;
 	

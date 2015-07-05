@@ -59,7 +59,7 @@ void KeyValuePairInterface::setValue( const string& v )
 	mKeyValuePair.second = v;
 }
 
-void KeyValuePairInterface::parse( const Buffer& buffer )
+void KeyValuePairInterface::parse( const BufferRef& buffer )
 {
 	string s = bufferToString( buffer );
 	vector<string> lines;
@@ -76,7 +76,7 @@ void KeyValuePairInterface::parse( const Buffer& buffer )
 	}
 }
 
-Buffer KeyValuePairInterface::toBuffer() const
+BufferRef KeyValuePairInterface::toBuffer() const
 {
 	return stringToBuffer( toString() );
 }

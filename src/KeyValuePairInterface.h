@@ -48,10 +48,10 @@ public:
 	void					setValue( const std::string& v );
 
 	//! Parses \a buffer to key-value pair.
-	void					parse( const ci::Buffer& buffer );
+	void					parse( const ci::BufferRef& buffer );
 
 	//! Converts message to ci::Buffer.
-	ci::Buffer				toBuffer() const;
+	ci::BufferRef			toBuffer() const;
 	//! Converts message to string.
 	virtual std::string		toString() const;
 protected:
