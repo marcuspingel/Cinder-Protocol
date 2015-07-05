@@ -75,14 +75,14 @@ void TcpClientConnection::connect( const string& host, int16_t port )
 	mClient->connect( host, port );
 }
 
-void TcpClientConnection::write( const Buffer& buffer )
+void TcpClientConnection::write( const BufferRef& buffer )
 {
 	if ( isConnected() ) {
 		mClientEventHandler.getSession()->write( buffer );
 	}
 }
 
-const Buffer& TcpClientConnection::getBuffer() const
+const BufferRef& TcpClientConnection::getBuffer() const
 {
 	return mSessionEventHandler.getBuffer();
 }

@@ -139,8 +139,8 @@ void FtpClientApp::update()
 
 	if ( mConnectionControl->isConnected()	&& 
 		 mConnectionControl->getBuffer()	&& 
-		 mConnectionControl->getBuffer().getDataSize() > 0 ) {
-		const Buffer& buffer = mConnectionControl->getBuffer();
+		 mConnectionControl->getBuffer()->getSize() > 0 ) {
+		const BufferRef& buffer = mConnectionControl->getBuffer();
 
 		string s = ProtocolInterface::bufferToString( buffer );
 		
