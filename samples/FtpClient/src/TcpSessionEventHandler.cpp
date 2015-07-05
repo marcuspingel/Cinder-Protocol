@@ -45,7 +45,7 @@ TcpSessionEventHandler::TcpSessionEventHandler()
 {
 }
 
-const Buffer& TcpSessionEventHandler::getBuffer() const
+const BufferRef& TcpSessionEventHandler::getBuffer() const
 {
 	return mBuffer;
 }
@@ -75,15 +75,15 @@ void TcpSessionEventHandler::onError( string err, size_t bytesTransferred )
 	mError = err;
 }
 
-void TcpSessionEventHandler::onRead( Buffer buffer )
+void TcpSessionEventHandler::onRead( BufferRef buffer )
 {
-	size_t len = buffer.getDataSize();
+	size_t len = buffer->getSize();
 	if ( !mBuffer ) {
-		mBuffer = Buffer( len );
+        mBuffer = Buffer::create( len );
 	} else {
-		mBuffer.resize( mBuffer.getDataSize() + len );
+		mBuffer->resize( mBuffer->getSize() + len );
 	}
-	mBuffer.copyFrom( buffer.getData(), len );
+	mBuffer->copyFrom( buffer->getData(), len );
 	mError	= "";
 }
 

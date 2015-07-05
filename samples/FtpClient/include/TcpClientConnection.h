@@ -50,9 +50,9 @@ public:
 
 	void					close();
 	void					connect( const std::string& host, int16_t port );
-	void					write( const ci::Buffer& buffer );
+	void					write( const ci::BufferRef& buffer );
 
-	const ci::Buffer&		getBuffer() const;
+	const ci::BufferRef&    getBuffer() const;
 	bool					isConnected() const;
 protected:
 	TcpClientConnection( asio::io_service& io );

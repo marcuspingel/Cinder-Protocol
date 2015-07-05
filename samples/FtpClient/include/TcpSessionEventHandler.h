@@ -44,18 +44,18 @@ class TcpSessionEventHandler : public TcpSessionEventHandlerInterface
 public:
 	TcpSessionEventHandler();
 	
-	const ci::Buffer&	getBuffer() const;
+	const ci::BufferRef&	getBuffer() const;
 	const std::string&	getError() const;
 	bool				isReadComplete() const;
 	bool				isWriteComplete() const;
 	
 	void				onClose();
 	void				onError( std::string err, size_t bytesTransferred );
-	void				onRead( ci::Buffer buffer );
+	void				onRead( ci::BufferRef buffer );
 	void				onReadComplete();
 	void				onWrite( size_t bytesTransferred );
 protected:
-	ci::Buffer			mBuffer;
+	ci::BufferRef		mBuffer;
 	std::string			mError;
 	bool				mReadComplete;
 	bool				mWriteComplete;
