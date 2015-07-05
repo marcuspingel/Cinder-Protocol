@@ -38,6 +38,10 @@
 		F7E9636E1B48C22D00A13777 /* UdpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E9635D1B48C22D00A13777 /* UdpServer.cpp */; };
 		F7E9636F1B48C22D00A13777 /* UdpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E963601B48C22D00A13777 /* UdpSession.cpp */; };
 		F7E963701B48C22D00A13777 /* WaitTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E963631B48C22D00A13777 /* WaitTimer.cpp */; };
+		F7E963791B48C80900A13777 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E963771B48C7DF00A13777 /* CoreMedia.framework */; };
+		F7E9637A1B48C80900A13777 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E963751B48C7CE00A13777 /* AVFoundation.framework */; };
+		F7E9637B1B48C80900A13777 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E963731B48C7B800A13777 /* IOSurface.framework */; };
+		F7E9637C1B48C80900A13777 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E963711B48C7AE00A13777 /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +115,10 @@
 		F7E963631B48C22D00A13777 /* WaitTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WaitTimer.cpp; path = "../../../../Cinder-Asio/src/WaitTimer.cpp"; sourceTree = "<group>"; };
 		F7E963641B48C22D00A13777 /* WaitTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitTimer.h; path = "../../../../Cinder-Asio/src/WaitTimer.h"; sourceTree = "<group>"; };
 		F7E963651B48C22D00A13777 /* WaitTimerEventHandlerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitTimerEventHandlerInterface.h; path = "../../../../Cinder-Asio/src/WaitTimerEventHandlerInterface.h"; sourceTree = "<group>"; };
+		F7E963711B48C7AE00A13777 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		F7E963731B48C7B800A13777 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
+		F7E963751B48C7CE00A13777 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F7E963771B48C7DF00A13777 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E963791B48C80900A13777 /* CoreMedia.framework in Frameworks */,
+				F7E9637A1B48C80900A13777 /* AVFoundation.framework in Frameworks */,
+				F7E9637B1B48C80900A13777 /* IOSurface.framework in Frameworks */,
+				F7E9637C1B48C80900A13777 /* IOKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */,
 				5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */,
@@ -152,6 +164,10 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7E963771B48C7DF00A13777 /* CoreMedia.framework */,
+				F7E963751B48C7CE00A13777 /* AVFoundation.framework */,
+				F7E963731B48C7B800A13777 /* IOSurface.framework */,
+				F7E963711B48C7AE00A13777 /* IOKit.framework */,
 				00B784AF0FF439BC000DE1D7 /* Accelerate.framework */,
 				00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */,
 				00B784B10FF439BC000DE1D7 /* AudioUnit.framework */,
@@ -383,6 +399,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CINDER_PATH = ../../../../..;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -411,6 +428,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CINDER_PATH = ../../../../..;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
