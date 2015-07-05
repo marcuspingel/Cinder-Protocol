@@ -240,7 +240,7 @@ void HttpClientApp::setup()
 
 	mParams = params::InterfaceGl::create( "Params", ivec2( 200, 150 ) );
 	mParams->addParam( "Frame rate",	&mFrameRate,			"", true );
-//	mParams->addParam( "Full screen",	&mFullScreen.key( "f" ) );
+	mParams->addParam( "Full screen",	&mFullScreen,           "key=f" );
 	mParams->addParam( "Image index",	&mIndex,				"min=0 max=3 step=1 keyDecr=i keyIncr=I" );
 	mParams->addParam( "Host",			&mHost );
 	mParams->addButton( "Write",		[ & ]() { write(); },	"key=w" );

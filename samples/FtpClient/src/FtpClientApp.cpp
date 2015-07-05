@@ -102,8 +102,8 @@ void FtpClientApp::setup()
 	
 	mParams = params::InterfaceGl::create( "Params", ivec2( 200, 120 ) );
 	mParams->addParam( "Frame rate",	&mFrameRate,			"", true );
-	mParams->addParam( "Full screen",	&mFullScreen ).key( "f" );
-	mParams->addButton( "Quit",			[ & ]() { quit(); },	"key=q" );
+    mParams->addParam( "Full screen",	&mFullScreen,           "key=f" );
+    mParams->addButton( "Quit",			[ & ]() { quit(); },	"key=q" );
 	
 	mConnectionControl = TcpClientConnection::create( io_service() );
 
